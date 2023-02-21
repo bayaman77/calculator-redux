@@ -1,13 +1,13 @@
-import { combineReducers, createStore } from "redux";
-import { AuthReducer } from "./auth/authReducer";
-import { calculatorReducer } from "./calculator/calculatorReducer";
+import { configureStore } from "@reduxjs/toolkit";
+import {  authSlice } from "./auth/authSlice";
+import {  calculatorSlice } from "./calculator/calculatorSlice";
 
-const rootReducer = combineReducers({
-  calculator: calculatorReducer,
-  auth: AuthReducer,
-});
-
-export const store = createStore(rootReducer);
+export const store = configureStore({
+  reducer: {
+    [authSlice.name]:authSlice.reducer,
+    [calculatorSlice.name]: calculatorSlice.reducer
+  }
+})
 
 store.subscribe(() => {
   console.log("STORE CHANGED", store.getState());

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { authActionTypes } from "../store/auth/authReducer";
+import { authActions } from "../store/auth/authSlice";
 import classes from "./Auth.module.css";
 
 const Auth = () => {
@@ -22,7 +22,7 @@ const Auth = () => {
       formState.email === "test@gmail.com" &&
       formState.password === "123123"
     ) {
-      dispatch({ type: authActionTypes.LOG_IN, payload: formState.email });
+      dispatch(authActions.logIn(formState.email));
     }
   };
 

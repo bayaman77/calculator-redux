@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { calculaterActionTypes, store } from "../store/calculator/calculatorReducer";
+import { calculatorActions } from "../store/calculator/calculatorSlice";
 import classes from "./Counter.module.css";
 
 const Calculator = () => {
@@ -7,16 +7,16 @@ const Calculator = () => {
   const dispatch = useDispatch();
 
   const addHandler = () => {
-    dispatch({ type: calculaterActionTypes.ADD, payload: 5 });
+    dispatch(calculatorActions.add(5));
   };
   const divideHandler = () => {
-    dispatch({ type: calculaterActionTypes.DIVIDE, payload: 4 });
+    dispatch(calculatorActions.divide(4));
   };
   const subtractHandler = () => {
-    dispatch({ type: calculaterActionTypes.SUBTRACT, payload: 10 });
+    dispatch(calculatorActions.subtruct(10));
   };
   const multiplyHandler = () => {
-    dispatch({ type: calculaterActionTypes.MULTIPLY, payload: 2 });
+    dispatch(calculatorActions.multiply(2));
   };
 
   return (
